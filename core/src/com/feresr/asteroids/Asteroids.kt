@@ -33,9 +33,9 @@ class Asteroids : ApplicationAdapter() {
         gameOver = false
         asteroids.clear()
         bullets.clear()
-        asteroids.add(generateAsteroid(30f, 30f, 16f))
-        asteroids.add(generateAsteroid(90f, 30f, 16f))
-        asteroids.add(generateAsteroid(30f, 90f, 16f))
+        asteroids.add(generateAsteroid(SCREEN_SIZE * .3f, SCREEN_SIZE * .3f, 16f))
+        asteroids.add(generateAsteroid(SCREEN_SIZE * .9f, SCREEN_SIZE * .3f, 16f))
+        asteroids.add(generateAsteroid(SCREEN_SIZE * .3f, SCREEN_SIZE * .9f, 16f))
 
         spaceShip.dx = 0f
         spaceShip.dy = 0f
@@ -176,7 +176,7 @@ class Asteroids : ApplicationAdapter() {
             rotate + wireFrame.y
         }
 
-        for (i in 0 until wireFrame.modelX.size) {
+        for (i in wireFrame.modelX.indices) {
             graphics.drawLine(
                     transformedX[i],
                     transformedY[i],
